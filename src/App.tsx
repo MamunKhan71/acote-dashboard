@@ -17,6 +17,7 @@ import Buttons from "./pages/UiElements/Buttons";
 import Images from "./pages/UiElements/Images";
 import Videos from "./pages/UiElements/Videos";
 import UserProfiles from "./pages/UserProfiles";
+import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
             {/* Forms */}
             <Route path="/form-elements" element={<FormElements />} />
             <Route path="/jobs" element={<JobApplicationForm />} />
+            <Route path="/appointments" element={<AppointmentsPage />} />
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />
