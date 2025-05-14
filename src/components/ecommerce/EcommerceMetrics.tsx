@@ -21,7 +21,7 @@ export default function EcommerceMetrics() {
               Total Job Posted
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
-              1,245
+              545
             </h4>
           </div>
           <Badge color="success">
@@ -65,7 +65,7 @@ export default function EcommerceMetrics() {
               Total Appointments
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
-              2,134
+              1,134
             </h4>
           </div>
           <Badge color="error">
@@ -86,7 +86,7 @@ export default function EcommerceMetrics() {
               Total Services
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
-              4,567
+             99
             </h4>
           </div>
           <Badge color="success">

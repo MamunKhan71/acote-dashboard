@@ -42,7 +42,6 @@ const tableHeaders = [
   { key: "action", label: "Action" },
 ];
 
-// Optional: Function to render action buttons
 const renderActionButtons = (job: Job) => (
   <div className="flex gap-2">
     <button

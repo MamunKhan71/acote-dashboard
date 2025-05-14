@@ -8,34 +8,28 @@ export default function NotFound() {
         title="React.js 404 Dashboard | TailAdmin - React.js Admin Dashboard Template"
         description="This is React.js 404 Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
-      <div className="relative flex flex-col items-center justify-center min-h-screen p-6 overflow-hidden z-1">
-        <div className="mx-auto w-full max-w-[242px] text-center sm:max-w-[472px]">
-          <h1 className="mb-8 font-bold text-gray-800 text-title-md dark:text-white/90 xl:text-title-2xl">
-            ERROR
-          </h1>
+      <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Background circuit pattern elements */}
+        <div>
+          <img src="login-bg.jpg" alt="login-bg" className="absolute w-full h-full inset-0 -z-10 object-cover" />
+          <div className="absolute inset-0 bg-black/50 -z-10"></div>
+        </div>
 
-          <img src="/images/error/404.svg" alt="404" className="dark:hidden" />
-          <img
-            src="/images/error/404-dark.svg"
-            alt="404"
-            className="hidden dark:block"
-          />
-
-          <p className="mt-10 mb-6 text-base text-gray-700 dark:text-gray-400 sm:text-lg">
-            We can’t seem to find the page you are looking for!
+        {/* Content container */}
+        <div className="relative z-10 w-full max-w-md p-8 mx-auto bg-[#0c2522]/80 backdrop-blur-sm border border-[#10b981]/20 rounded-lg shadow-xl text-center">
+          <h1 className="text-7xl font-bold text-white mb-2">404</h1>
+          <h2 className="text-2xl font-semibold text-white mb-4">Page Not Found</h2>
+          <p className="text-[#a3e0d3] mb-8">
+            The page you are looking for doesn't exist or has been moved.
           </p>
 
           <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3.5 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
+            to={'/'}
+            className="inline-block w-full py-3 px-4 bg-[#10b981] hover:bg-[#0d9668] text-white font-medium rounded-md transition-colors duration-200"
           >
-            Back to Home Page
+            Return to Dashboard
           </Link>
         </div>
-        {/* <!-- Footer --> */}
-        <p className="absolute text-sm text-center text-gray-500 -translate-x-1/2 bottom-6 left-1/2 dark:text-gray-400">
-          &copy; {new Date().getFullYear()} - TailAdmin
-        </p>
       </div>
     </>
   );

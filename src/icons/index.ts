@@ -52,8 +52,14 @@ import { ReactComponent as ChatIcon } from "./chat.svg?react";
 import { ReactComponent as MoreDotIcon } from "./moredot.svg?react";
 import { ReactComponent as AlertHexaIcon } from "./alert-hexa.svg?react";
 import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
+import { ReactComponent as BriefCase } from "./briefcase.svg?react";
+import { ReactComponent as Products } from "./products.svg?react";
+import { ReactComponent as Portfolio } from "./portfolio.svg?react";
 
 export {
+  BriefCase,
+  Products,
+  Portfolio,
   ErrorHexaIcon,
   AlertHexaIcon,
   MoreDotIcon,

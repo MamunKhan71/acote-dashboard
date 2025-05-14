@@ -3,10 +3,13 @@ import { Link, useLocation } from "react-router";
 
 import { useSidebar } from "../context/SidebarContext";
 import {
+  BriefCase,
   CalenderIcon,
   ChevronDownIcon,
   GridIcon,
-  HorizontaLDots
+  HorizontaLDots,
+  Portfolio,
+  Products
 } from "../icons";
 
 type NavItem = {
@@ -23,9 +26,24 @@ const navItems: NavItem[] = [
     path: "/",
   },
   {
+    icon: <BriefCase />,
+    name: "Careers",
+    path: "/jobs",
+  },
+  {
     icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "/calendar",
+    name: "Appointments",
+    path: "/appointments",
+  },
+  {
+    icon: <Portfolio />,
+    name: "Portfolio",
+    path: "/portfolio",
+  },
+  {
+    icon: <Products />,
+    name: "Products",
+    path: "/products",
   },
 ];
 
@@ -64,7 +82,6 @@ const AppSidebar: React.FC = () => {
   );
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  // const isActive = (path: string) => location.pathname === path;
   const isActive = useCallback(
     (path: string) => location.pathname === path,
     [location.pathname]
