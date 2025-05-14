@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Label from "../../components/form/Label";
-import Input from "../../components/form/input/InputField";
-import TextArea from "../../components/form/input/TextArea";
-import MultiSelect from "../../components/form/MultiSelect";
-import Button from "../../components/ui/button/Button";
-import Select from "../../components/form/Select";
-import { PlusIcon } from "../../icons";
+import Input from "../../../components/form/input/InputField";
+import TextArea from "../../../components/form/input/TextArea";
+import Label from "../../../components/form/Label";
+import MultiSelect from "../../../components/form/MultiSelect";
+import Select from "../../../components/form/Select";
+import Button from "../../../components/ui/button/Button";
+import { PlusIcon } from "../../../icons";
 
 const skillOptions = [
     "JavaScript", "TypeScript", "React", "Node.js", "Next.js",
@@ -62,7 +62,7 @@ function SidePreviewList({
     );
 }
 
-export default function FrontendJobDetailsForm() {
+export default function JobAddingForm() {
     const [formData, setFormData] = useState({
         title: "Frontend Developer",
         company: "Acote Group LTD.",

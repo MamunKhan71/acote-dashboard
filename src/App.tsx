@@ -1,14 +1,19 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import AppLayout from "./layout/AppLayout";
+import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
 import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
 import BarChart from "./pages/Charts/BarChart";
 import LineChart from "./pages/Charts/LineChart";
 import Home from "./pages/Dashboard/Home";
+import EventsPage from "./pages/Events/EventsPage";
 import FormElements from "./pages/Forms/FormElements";
-import JobApplicationForm from "./pages/Jobs/JobsPage";
+import JobAddingForm from "./pages/Jobs/add/JobsAddPage";
+import JobPage from "./pages/Jobs/JobPage";
 import NotFound from "./pages/OtherPage/NotFound";
+import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+import ProductsPage from "./pages/Products/ProductsPage";
 import BasicTables from "./pages/Tables/BasicTables";
 import Alerts from "./pages/UiElements/Alerts";
 import Avatars from "./pages/UiElements/Avatars";
@@ -17,7 +22,6 @@ import Buttons from "./pages/UiElements/Buttons";
 import Images from "./pages/UiElements/Images";
 import Videos from "./pages/UiElements/Videos";
 import UserProfiles from "./pages/UserProfiles";
-import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
 
 export default function App() {
   return (
@@ -33,8 +37,12 @@ export default function App() {
             <Route path="/profile" element={<UserProfiles />} />
             {/* Forms */}
             <Route path="/form-elements" element={<FormElements />} />
-            <Route path="/jobs" element={<JobApplicationForm />} />
+            <Route path="/jobs" element={<JobPage />} />
+            <Route path="/jobs/add" element={<JobAddingForm />} />
             <Route path="/appointments" element={<AppointmentsPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/events" element={<EventsPage />} />
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />

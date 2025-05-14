@@ -6,6 +6,7 @@ import {
   BriefCase,
   CalenderIcon,
   ChevronDownIcon,
+  EventIcon,
   GridIcon,
   HorizontaLDots,
   Portfolio,
@@ -44,6 +45,11 @@ const navItems: NavItem[] = [
     icon: <Products />,
     name: "Products",
     path: "/products",
+  },
+  {
+    icon: <EventIcon />,
+    name: "Events",
+    path: "/events",
   },
 ];
 

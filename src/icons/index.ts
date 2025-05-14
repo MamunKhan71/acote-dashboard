@@ -55,9 +55,11 @@ import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
 import { ReactComponent as BriefCase } from "./briefcase.svg?react";
 import { ReactComponent as Products } from "./products.svg?react";
 import { ReactComponent as Portfolio } from "./portfolio.svg?react";
+import { ReactComponent as EventIcon } from "./event.svg?react";
 
 export {
   BriefCase,
+  EventIcon,
   Products,
   Portfolio,
   ErrorHexaIcon,
