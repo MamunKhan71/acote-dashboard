@@ -4,8 +4,6 @@ import AppLayout from "./layout/AppLayout";
 import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
 import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
-import BarChart from "./pages/Charts/BarChart";
-import LineChart from "./pages/Charts/LineChart";
 import Home from "./pages/Dashboard/Home";
 import EventsPage from "./pages/Events/EventsPage";
 import FormElements from "./pages/Forms/FormElements";
@@ -56,10 +54,6 @@ export default function App() {
             <Route path="/buttons" element={<Buttons />} />
             <Route path="/images" element={<Images />} />
             <Route path="/videos" element={<Videos />} />
-
-            {/* Charts */}
-            <Route path="/line-chart" element={<LineChart />} />
-            <Route path="/bar-chart" element={<BarChart />} />
           </Route>
 
           {/* Auth Layout */}
