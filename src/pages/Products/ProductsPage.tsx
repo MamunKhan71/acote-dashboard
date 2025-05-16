@@ -248,103 +248,118 @@ export default function UploadProductForm() {
                     Product Preview
                 </h3>
 
-                {mainImagePreview && (
-                    <img
-                        src={mainImagePreview}
-                        alt="Main Preview"
-                        className="rounded mb-4 w-full h-48 object-cover"
-                    />
-                )}
-
-                {title && (
-                    <p className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-2">
-                        {title}
-                    </p>
-                )}
-                {description && (
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                        {description}
-                    </p>
-                )}
-
-                {features.length > 0 && (
-                    <div className="mb-4">
-                        <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
-                            Features
-                        </h4>
-                        <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                            {features.map((value, idx) => {
-                                const feature =
-                                    featureOptions.find((opt) => opt.value === value)?.text ||
-                                    value;
-                                return feature && <li key={idx}>{feature}</li>;
-                            })}
-                        </ul>
+                {/* Skeleton Loader */}
+                {!title && !description && !mainImagePreview && features.length === 0 && frontendSpecs.length === 0 && backendSpecs.length === 0 && !category ? (
+                    <div className="animate-pulse space-y-4">
+                        <div className="bg-gray-200 dark:bg-gray-700 h-48 w-full rounded mb-4" />
+                        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4" />
                     </div>
-                )}
+                ) : (
+                    <>
+                        {mainImagePreview && (
+                            <img
+                                src={mainImagePreview}
+                                alt="Main Preview"
+                                className="rounded mb-4 w-full h-48 object-cover"
+                            />
+                        )}
 
-                {screenshotPreviews.length > 0 && (
-                    <div className="mb-4">
-                        <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
-                            Screenshots
-                        </h4>
-                        <div className="grid grid-cols-2 gap-2">
-                            {screenshotPreviews.map((src, idx) => (
-                                <img
-                                    key={idx}
-                                    src={src}
-                                    alt={`Screenshot ${idx}`}
-                                    className="rounded h-24 object-cover w-full"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                )}
+                        {title && (
+                            <p className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-2">
+                                {title}
+                            </p>
+                        )}
+                        {description && (
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                                {description}
+                            </p>
+                        )}
 
-                {(frontendSpecs.length > 0 || backendSpecs.length > 0) && (
-                    <div>
-                        <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
-                            Technical Specifications
-                        </h4>
-                        {frontendSpecs.length > 0 && (
-                            <div className="mb-2">
-                                <p className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-                                    Frontend
-                                </p>
-                                <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300">
-                                    {frontendSpecs.map((value, i) => {
-                                        const tech =
-                                            frontendTechOptions.find((opt) => opt.value === value)
-                                                ?.text || value;
-                                        return tech && <li key={i}>{tech}</li>;
+                        {features.length > 0 && (
+                            <div className="mb-4">
+                                <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
+                                    Features
+                                </h4>
+                                <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                    {features.map((value, idx) => {
+                                        const feature =
+                                            featureOptions.find((opt) => opt.value === value)?.text ||
+                                            value;
+                                        return feature && <li key={idx}>{feature}</li>;
                                     })}
                                 </ul>
                             </div>
                         )}
-                        {backendSpecs.length > 0 && (
+
+                        {screenshotPreviews.length > 0 && (
+                            <div className="mb-4">
+                                <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
+                                    Screenshots
+                                </h4>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {screenshotPreviews.map((src, idx) => (
+                                        <img
+                                            key={idx}
+                                            src={src}
+                                            alt={`Screenshot ${idx}`}
+                                            className="rounded h-24 object-cover w-full"
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {(frontendSpecs.length > 0 || backendSpecs.length > 0) && (
                             <div>
-                                <p className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-                                    Backend
-                                </p>
-                                <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300">
-                                    {backendSpecs.map((value, i) => {
-                                        const tech =
-                                            backendTechOptions.find((opt) => opt.value === value)
-                                                ?.text || value;
-                                        return tech && <li key={i}>{tech}</li>;
-                                    })}
-                                </ul>
+                                <h4 className="font-medium text-sm text-gray-700 dark:text-gray-300 mb-1">
+                                    Technical Specifications
+                                </h4>
+                                {frontendSpecs.length > 0 && (
+                                    <div className="mb-2">
+                                        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                            Frontend
+                                        </p>
+                                        <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300">
+                                            {frontendSpecs.map((value, i) => {
+                                                const tech =
+                                                    frontendTechOptions.find((opt) => opt.value === value)
+                                                        ?.text || value;
+                                                return tech && <li key={i}>{tech}</li>;
+                                            })}
+                                        </ul>
+                                    </div>
+                                )}
+                                {backendSpecs.length > 0 && (
+                                    <div>
+                                        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                                            Backend
+                                        </p>
+                                        <ul className="list-disc ml-5 text-sm text-gray-600 dark:text-gray-300">
+                                            {backendSpecs.map((value, i) => {
+                                                const tech =
+                                                    backendTechOptions.find((opt) => opt.value === value)
+                                                        ?.text || value;
+                                                return tech && <li key={i}>{tech}</li>;
+                                            })}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
                         )}
-                    </div>
-                )}
 
-                {category && (
-                    <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                        <span className="font-medium">Category:</span>{" "}
-                        {categoryOptions.find((opt) => opt.value === category)?.text ||
-                            category}
-                    </p>
+                        {category && (
+                            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+                                <span className="font-medium">Category:</span>{" "}
+                                {categoryOptions.find((opt) => opt.value === category)?.text ||
+                                    category}
+                            </p>
+                        )}
+                    </>
                 )}
             </div>
         </div>
