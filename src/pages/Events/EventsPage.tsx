@@ -6,7 +6,6 @@ import Label from "../../components/form/Label";
 import Checkbox from "../../components/form/input/Checkbox";
 import Select from "../../components/form/Select";
 import DatePicker from "../../components/form/date-picker";
-import DropzoneComponent from "../../components/form/form-elements/DropZone";
 
 const categoryTabs = [
     "Awards",
@@ -67,11 +66,10 @@ export default function UploadEventForm() {
 
     return (
         <div className="flex gap-6 w-full">
-            <div className="bg-white dark:bg-black p-6 rounded-lg border dark:border-gray-700 flex flex-col lg:flex-row gap-6 lg:w-3/5">
+            <div className="bg-white dark:bg-black p-6 rounded-lg border flex flex-col lg:flex-row gap-6 lg:w-3/5">
                 {/* Form */}
                 <div className="w-full">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Upload Event</h2>
-                    <DropzoneComponent />
 
                     <Label>Event Title</Label>
                     <Input placeholder="Enter event title" value={title} onChange={(e) => setTitle(e.target.value)} />

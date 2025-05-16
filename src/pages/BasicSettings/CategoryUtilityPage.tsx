@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Input from "../../components/form/input/InputField";
-import Label from "../../components/form/Label";
+import { useModal } from "../../hooks/useModal";
 
 const initialCategoryGroups = {
     events: ["Awards", "Events", "Fun activity", "Signing Ceremony", "Conferences"],
@@ -16,7 +16,12 @@ function CategorySection({ type, categories, onAdd, onRemove, onUpdate }: {
     onUpdate: (index: number, newName: string) => void;
 }) {
     const [newCategory, setNewCategory] = useState("");
-
+    const { isOpen, openModal, closeModal } = useModal();
+    const handleSave = () => {
+        // Handle save logic here
+        console.log("Saving changes...");
+        closeModal();
+    };
     const handleAdd = () => {
         if (!newCategory.trim()) return;
         onAdd(newCategory.trim());
@@ -59,6 +64,7 @@ function CategorySection({ type, categories, onAdd, onRemove, onUpdate }: {
                         >
                             Delete
                         </button>
+                        
                     </li>
                 ))}
             </ul>
@@ -91,7 +97,6 @@ export default function CategoryUtilityPage() {
     return (
         <div className="dark:bg-black">
             <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Manage Categories</h1>
-
             <div className="grid grid-cols-2 gap-6">
                 {Object.entries(categories).map(([type, list]) => (
                     <CategorySection
