@@ -12,7 +12,7 @@ import FormElements from "./pages/Forms/FormElements";
 import JobAddingForm from "./pages/Jobs/add/JobsAddPage";
 import JobPage from "./pages/Jobs/JobPage";
 import NotFound from "./pages/OtherPage/NotFound";
-import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+import AddPortfolioPage from "./pages/Portfolio/PortfolioPage";
 import ProductsPage from "./pages/Products/ProductsPage";
 import BasicTables from "./pages/Tables/BasicTables";
 import Alerts from "./pages/UiElements/Alerts";
@@ -41,7 +41,7 @@ export default function App() {
             <Route path="/jobs/add" element={<JobAddingForm />} />
             <Route path="/appointments" element={<AppointmentsPage />} />
             <Route path="/products" element={<ProductsPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/portfolio" element={<AddPortfolioPage />} />
             <Route path="/events" element={<EventsPage />} />
 
             {/* Tables */}
