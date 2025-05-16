@@ -22,6 +22,7 @@ import Buttons from "./pages/UiElements/Buttons";
 import Images from "./pages/UiElements/Images";
 import Videos from "./pages/UiElements/Videos";
 import UserProfiles from "./pages/UserProfiles";
+import CategoryUtilityPage from "./pages/BasicSettings/CategoryUtilityPage";
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/portfolio" element={<AddPortfolioPage />} />
             <Route path="/events" element={<EventsPage />} />
+            <Route path="/utility" element={<CategoryUtilityPage />} />
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />

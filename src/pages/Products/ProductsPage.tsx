@@ -157,7 +157,7 @@ export default function UploadProductForm() {
     return (
         <div className="flex flex-col lg:flex-row gap-6 ">
             {/* Form */}
-            <div className="w-full lg:w-3/5 bg-white dark:bg-zinc-900 p-6 rounded-lg shadow">
+            <div className="w-full lg:w-3/5 bg-white dark:bg-black p-6 rounded-lg shadow border dark:border-gray-700">
                 <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
                     Upload Product
                 </h2>
@@ -243,7 +243,7 @@ export default function UploadProductForm() {
             </div>
 
             {/* Preview */}
-            <div className="w-full lg:w-2/5 bg-white dark:bg-zinc-800 p-5 rounded-xl h-fit border border-gray-200 dark:border-gray-700">
+            <div className="w-full lg:w-2/5 bg-white dark:bg-black p-5 rounded-xl h-fit border border-gray-200 dark:border-gray-700">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
                     Product Preview
                 </h3>

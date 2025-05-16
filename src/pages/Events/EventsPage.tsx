@@ -6,6 +6,7 @@ import Label from "../../components/form/Label";
 import Checkbox from "../../components/form/input/Checkbox";
 import Select from "../../components/form/Select";
 import DatePicker from "../../components/form/date-picker";
+import DropzoneComponent from "../../components/form/form-elements/DropZone";
 
 const categoryTabs = [
     "Awards",
@@ -66,10 +67,11 @@ export default function UploadEventForm() {
 
     return (
         <div className="flex gap-6 w-full">
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-lg border flex flex-col lg:flex-row gap-6 lg:w-3/5">
+            <div className="bg-white dark:bg-black p-6 rounded-lg border dark:border-gray-700 flex flex-col lg:flex-row gap-6 lg:w-3/5">
                 {/* Form */}
                 <div className="w-full">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Upload Event</h2>
+                    <DropzoneComponent />
 
                     <Label>Event Title</Label>
                     <Input placeholder="Enter event title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -128,17 +130,17 @@ export default function UploadEventForm() {
 
                 {/* Preview */}
             </div>
-            <div className="w-full lg:w-2/5 bg-white dark:bg-zinc-800 p-6 rounded-2xl h-fit border border-gray-200 dark:border-gray-700 flex flex-col items-left">
+            <div className="w-full lg:w-2/5 bg-white dark:bg-black p-6 rounded-2xl h-fit border border-gray-200 dark:border-gray-700 flex flex-col items-left">
                 <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Event Preview</h3>
                 {/* Skeleton Loader */}
                 {!imagePreview && !title && !date && !category && !description && !isVideo ? (
                     <div className="animate-pulse space-y-5 w-full">
                         <div className="bg-gray-200 dark:bg-gray-700 rounded-xl w-full h-44 mb-4" />
-                        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mx-auto mb-2" />
-                        <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto mb-2" />
-                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3 mx-auto mb-2" />
-                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mx-auto mb-3" />
-                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mx-auto" />
+                        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2" />
+                        <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3 mb-2" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-3" />
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
                     </div>
                 ) : (
                     <div className="w-full flex flex-col items-start">

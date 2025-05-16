@@ -247,7 +247,7 @@ export default function AddPortfolio() {
                     Submit Portfolio
                 </button>
             </div>
-            <div className="lg:w-2/5 bg-white dark:bg-zinc-900 p-5 rounded-xl h-fit max-h-full w-full overflow-y-auto border border-gray-200 dark:border-gray-700">
+            <div className="lg:w-2/5 bg-white dark:bg-black p-5 rounded-xl h-fit max-h-full w-full overflow-y-auto border border-gray-200 dark:border-gray-700">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
                     Portfolio Preview
                 </h2>
