@@ -1,12 +1,27 @@
 import { useState } from "react";
 import Input from "../../components/form/input/InputField";
-import { Modal } from "../../components/ui/Modal"; // ✅ adjust import path if needed
+import { Modal } from "../../components/modal";
 
-const initialCategoryGroups = {
+// Define type for category groups
+type CategoryGroup = {
+    [key in "events" | "products" | "design"]: string[];
+};
+
+// Define initial category groups with explicit type
+const initialCategoryGroups: CategoryGroup = {
     events: ["Awards", "Events", "Fun activity", "Signing Ceremony", "Conferences"],
     products: ["AI/ML", "Beauty", "Business", "Ecommerce", "IOT"],
     design: ["Graphics Design", "Development", "UX/UI Design", "SaaS & Dashboard", "AI/ML"],
 };
+
+// Define props for CategorySection
+interface CategorySectionProps {
+    type: keyof CategoryGroup;
+    categories: string[];
+    onAdd: (name: string) => void;
+    onRequestRemove: (index: number) => void;
+    onUpdate: (index: number, newName: string) => void;
+}
 
 function CategorySection({
     type,
@@ -14,19 +29,19 @@ function CategorySection({
     onAdd,
     onRequestRemove,
     onUpdate,
-}: {
-    type: string;
-    categories: string[];
-    onAdd: (name: string) => void;
-    onRequestRemove: (index: number) => void;
-    onUpdate: (index: number, newName: string) => void;
-}) {
+}: CategorySectionProps) {
     const [newCategory, setNewCategory] = useState("");
 
     const handleAdd = () => {
         if (!newCategory.trim()) return;
         onAdd(newCategory.trim());
         setNewCategory("");
+    };
+
+    const handleUpdate = (index: number, value: string) => {
+        if (value.trim()) {
+            onUpdate(index, value.trim());
+        }
     };
 
     return (
@@ -40,12 +55,13 @@ function CategorySection({
                     <Input
                         placeholder="Add new category"
                         value={newCategory}
-                        onChange={(e) => setNewCategory(e.target.value)}
+                        onChange={(e) => setNewCategory(e.target.value.trim())}
                     />
                 </div>
                 <button
                     onClick={handleAdd}
                     className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 w-20"
+                    disabled={!newCategory.trim()}
                 >
                     Add
                 </button>
@@ -53,9 +69,13 @@ function CategorySection({
 
             <ul className="space-y-2">
                 {categories.map((cat, index) => (
-                    <li key={index} className="flex items-center gap-3 w-full">
+                    <li key={cat} className="flex items-center gap-3 w-full">
                         <div className="w-full">
-                            <Input value={cat} className="flex-1" disabled />
+                            <Input
+                                value={cat}
+                                onChange={(e) => handleUpdate(index, e.target.value)}
+                                className="flex-1"
+                            />
                         </div>
                         <button
                             onClick={() => onRequestRemove(index)}
@@ -71,15 +91,18 @@ function CategorySection({
 }
 
 export default function CategoryUtilityPage() {
-    const [categories, setCategories] = useState(initialCategoryGroups);
+    const [categories, setCategories] = useState<CategoryGroup>(initialCategoryGroups);
     const [modalOpen, setModalOpen] = useState(false);
-    const [pendingDelete, setPendingDelete] = useState<{ type: string; index: number } | null>(null);
+    const [pendingDelete, setPendingDelete] = useState<{
+        type: keyof CategoryGroup;
+        index: number;
+    } | null>(null);
 
-    const handleAdd = (type: string, name: string) => {
+    const handleAdd = (type: keyof CategoryGroup, name: string) => {
         setCategories((prev) => ({ ...prev, [type]: [...prev[type], name] }));
     };
 
-    const requestDelete = (type: string, index: number) => {
+    const requestDelete = (type: keyof CategoryGroup, index: number) => {
         setPendingDelete({ type, index });
         setModalOpen(true);
     };
@@ -95,7 +118,7 @@ export default function CategoryUtilityPage() {
         setPendingDelete(null);
     };
 
-    const handleUpdate = (type: string, index: number, newName: string) => {
+    const handleUpdate = (type: keyof CategoryGroup, index: number, newName: string) => {
         setCategories((prev) => {
             const updated = [...prev[type]];
             updated[index] = newName;
@@ -113,11 +136,11 @@ export default function CategoryUtilityPage() {
                 {Object.entries(categories).map(([type, list]) => (
                     <CategorySection
                         key={type}
-                        type={type}
+                        type={type as keyof CategoryGroup}
                         categories={list}
-                        onAdd={(name) => handleAdd(type, name)}
-                        onRequestRemove={(index) => requestDelete(type, index)}
-                        onUpdate={(index, newName) => handleUpdate(type, index, newName)}
+                        onAdd={(name) => handleAdd(type as keyof CategoryGroup, name)}
+                        onRequestRemove={(index) => requestDelete(type as keyof CategoryGroup, index)}
+                        onUpdate={(index, newName) => handleUpdate(type as keyof CategoryGroup, index, newName)}
                     />
                 ))}
             </div>

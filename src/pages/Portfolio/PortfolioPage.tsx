@@ -3,6 +3,13 @@ import FileInput from "../../components/form/input/FileInput";
 import Input from "../../components/form/input/InputField";
 import MultiSelect from "../../components/form/MultiSelect";
 import Label from "../../components/form/Label";
+type SectionWithBulletsProps = {
+    title: string;
+    intro: string;
+    setIntro: React.Dispatch<React.SetStateAction<string>>;
+    points: string[];
+    setPoints: React.Dispatch<React.SetStateAction<string[]>>;
+};
 
 const SectionWithBullets = ({
     title,
@@ -10,15 +17,15 @@ const SectionWithBullets = ({
     setIntro,
     points,
     setPoints,
-}) => {
-    const updatePoint = (index, value) => {
+}: SectionWithBulletsProps) => {
+    const updatePoint = (index: number, value: string) => {
         const updated = [...points];
         updated[index] = value;
         setPoints(updated);
     };
 
     const addPoint = () => setPoints([...points, ""]);
-    const removePoint = (index) =>
+    const removePoint = (index: number) =>
         setPoints(points.filter((_, i) => i !== index));
 
     return (
@@ -59,8 +66,8 @@ const SectionWithBullets = ({
 };
 
 export default function AddPortfolio() {
-    const [images, setImages] = useState([]);
-    const [imagePreviews, setImagePreviews] = useState([]);
+    const [images, setImages] = useState<File[]>([]);
+    const [imagePreviews, setImagePreviews] = useState<string[]>([]);
     const [error, setError] = useState("");
 
     const [overview, setOverview] = useState("");
@@ -76,9 +83,9 @@ export default function AddPortfolio() {
     const [platform, setPlatform] = useState("");
     const [customer, setCustomer] = useState("");
     const [liveUrl, setLiveUrl] = useState("");
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState<string[]>([]);
 
-    const handleImageChange = (e) => {
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
         if (files.length > 4) {
             setError("You can upload a maximum of 4 images.");

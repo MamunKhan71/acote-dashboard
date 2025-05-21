@@ -52,9 +52,8 @@ const backendTechOptions = [
 ].map((skill) => ({ value: skill, text: skill }));
 
 const categoryOptions = ["Beauty", "Skincare", "Electronics", "Software"].map(
-    (category) => ({ value: category.toLowerCase(), text: category })
+    (category) => ({ value: category.toLowerCase(), label: category })
 );
-
 export default function UploadProductForm() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -170,6 +169,7 @@ export default function UploadProductForm() {
 
                 <Label className="mt-4">Product Description</Label>
                 <TextArea
+                    id="description"
                     placeholder="Write a short description"
                     value={description}
                     onChange={(value) => setDescription(value)}
@@ -355,7 +355,7 @@ export default function UploadProductForm() {
                         {category && (
                             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
                                 <span className="font-medium">Category:</span>{" "}
-                                {categoryOptions.find((opt) => opt.value === category)?.text ||
+                                {categoryOptions.find((opt) => opt.value === category)?.label ||
                                     category}
                             </p>
                         )}

@@ -2,7 +2,7 @@ import { useModal } from "../../hooks/useModal";
 import Button from "../ui/button/Button";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
-import { Modal } from "../ui/Modal";
+import { Modal } from "../modal";
 
 export default function UserMetaCard() {
   const { isOpen, openModal, closeModal } = useModal();

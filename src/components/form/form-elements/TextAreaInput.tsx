@@ -13,6 +13,7 @@ export default function TextAreaInput() {
         <div>
           <Label>Description</Label>
           <TextArea
+            id="description2"
             value={message}
             onChange={(value) => setMessage(value)}
             rows={6}
@@ -22,13 +23,16 @@ export default function TextAreaInput() {
         {/* Disabled TextArea */}
         <div>
           <Label>Description</Label>
-          <TextArea rows={6} disabled />
+          <TextArea
+            id="description1"
+            rows={6} disabled />
         </div>
 
         {/* Error TextArea */}
         <div>
           <Label>Description</Label>
           <TextArea
+          id="description3"
             rows={6}
             value={messageTwo}
             error

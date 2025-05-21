@@ -124,7 +124,7 @@ export default function JobAddingForm() {
                             { value: "Hybrid", label: "Hybrid" }
                         ]}
                         placeholder="Select work type"
-                        value={formData.workType}
+                        defaultValue={formData.workType}
                         onChange={val => handleChange("workType", val)}
                     />
                 </div>
@@ -152,7 +152,7 @@ export default function JobAddingForm() {
                                 onChange={e => setNewResponsibility(e.target.value)}
                             />
                         </div>
-                        <Button type="button" onClick={() => addToList("responsibilities", newResponsibility)}>
+                        <Button onClick={() => addToList("responsibilities", newResponsibility)}>
                             <PlusIcon /> Add
                         </Button>
                     </div>
@@ -182,7 +182,7 @@ export default function JobAddingForm() {
                                 onChange={e => setNewBenefit(e.target.value)}
                             />
                         </div>
-                        <Button type="button" onClick={() => addToList("benefits", newBenefit)}>
+                        <Button onClick={() => addToList("benefits", newBenefit)}>
                             + Add
                         </Button>
                     </div>
@@ -204,7 +204,7 @@ export default function JobAddingForm() {
                     />
                 </div>
 
-                <Button type="submit" className="w-full">
+                <Button className="w-full">
                     Save Job Details
                 </Button>
             </form>
