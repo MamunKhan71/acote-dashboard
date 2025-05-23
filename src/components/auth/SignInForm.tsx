@@ -4,9 +4,25 @@ import { EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import Button from "../ui/button/Button";
+import { useForm } from "react-hook-form";
+import { useLoginUserMutation } from "../../redux/endpoints/userEndpoints";
 
+interface SignInFormInputs {
+  email: string;
+  password: string;
+}
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loginUser] = useLoginUserMutation()
+  const { register, handleSubmit } = useForm<SignInFormInputs>()
+
+  const handleOnSubmit = async (data: SignInFormInputs): Promise<void> => {
+    const result = await loginUser({
+      email: data?.email,
+      password: data?.password
+    })
+    console.log(result)
+  }
   return (
     <div className="flex flex-col flex-1 relative">
       <div>
@@ -24,13 +40,13 @@ export default function SignInForm() {
             </p>
           </div>
           <div>
-            <form>
+            <form onSubmit={handleSubmit(handleOnSubmit)}>
               <div className="space-y-6">
                 <div>
                   <Label className="text-white">
                     Email <span className="text-error-500">*</span>{" "}
                   </Label>
-                  <Input placeholder="info@acotegroup.com" className="text-white"/>
+                  <Input placeholder="info@acotegroup.com" className="text-white" {...register('email')} />
                 </div>
                 <div>
                   <Label className="text-white">
@@ -41,6 +57,7 @@ export default function SignInForm() {
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       className="text-white"
+                      {...register('password')}
                     />
                     <span
                       onClick={() => setShowPassword(!showPassword)}

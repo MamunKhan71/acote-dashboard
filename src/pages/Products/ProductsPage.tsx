@@ -14,6 +14,7 @@ const featureOptions = [
     "Scalable Architecture",
 ].map((feature) => ({ value: feature, text: feature }));
 
+
 const frontendTechOptions = [
     "JavaScript",
     "TypeScript",
@@ -52,7 +53,7 @@ const backendTechOptions = [
 ].map((skill) => ({ value: skill, text: skill }));
 
 const categoryOptions = ["Beauty", "Skincare", "Electronics", "Software"].map(
-    (category) => ({ value: category.toLowerCase(), label: category })
+  (category) => ({ value: category.toLowerCase(), label: category })
 );
 export default function UploadProductForm() {
     const [title, setTitle] = useState("");

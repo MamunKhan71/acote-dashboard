@@ -1,4 +1,3 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import AppLayout from "./layout/AppLayout";
 import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
@@ -13,18 +12,22 @@ import NotFound from "./pages/OtherPage/NotFound";
 import AddPortfolioPage from "./pages/Portfolio/PortfolioPage";
 import ProductsPage from "./pages/Products/ProductsPage";
 import UserProfiles from "./pages/UserProfiles";
+import ProtectedRoute from "./components/guard/ProtectedRoute";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 export default function App() {
   return (
-    <>
-      <Router>
-        <ScrollToTop />
-        <Routes>
-          {/* Dashboard Layout */}
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
-
-            {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/jobs" element={<JobPage />} />
             <Route path="/jobs/add" element={<JobAddingForm />} />
@@ -34,14 +37,11 @@ export default function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/utility" element={<CategoryUtilityPage />} />
           </Route>
-          {/* Auth Layout */}
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+        </Route>
 
-          {/* Fallback Route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </>
+        {/* Fallback Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

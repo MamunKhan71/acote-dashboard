@@ -3,8 +3,34 @@ import { Link } from "react-router";
 import { EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
+import { useForm } from 'react-hook-form'
+import { useCreateAdminMutation } from "../../redux/endpoints/userEndpoints";
+type SignUpFormFields = {
+  email: string;
+  first_name: string;
+  last_name: string;
+  password: string;
+};
 
 export default function SignUpForm() {
+  const { register, handleSubmit } = useForm<SignUpFormFields>();
+  const [createAdmin, { data }] = useCreateAdminMutation();
+
+  console.log(data)
+
+  const onSubmit = async (data: SignUpFormFields) => {
+    const fullName = `${data?.first_name} ${data.last_name}`
+    const newAdmin = {
+      name: fullName,
+      email: data.email,
+      password: data.password
+    }
+    console.log(newAdmin)
+    const result = await createAdmin(newAdmin)
+    console.log(result)
+
+  }
+
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex flex-col flex-1 w-full overflow-y-auto lg:w-1/2 no-scrollbar relative">
@@ -23,7 +49,7 @@ export default function SignUpForm() {
             </p>
           </div>
           <div>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-5">
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {/* <!-- First Name --> */}
@@ -35,8 +61,8 @@ export default function SignUpForm() {
                     <Input
                       className="text-white"
                       type="text"
-                      id="fname"
-                      name="fname"
+                      id="first_name"
+                      {...register('first_name')}
                       placeholder="Enter your first name"
                     />
                   </div>
@@ -50,7 +76,7 @@ export default function SignUpForm() {
                       className="text-white"
                       type="text"
                       id="lname"
-                      name="lname"
+                      {...register('last_name')}
                       placeholder="Enter your last name"
                     />
                   </div>
@@ -65,7 +91,7 @@ export default function SignUpForm() {
                     className="text-white"
                     type="email"
                     id="email"
-                    name="email"
+                    {...register('email')}
                     placeholder="Enter your email"
                   />
                 </div>
@@ -79,6 +105,7 @@ export default function SignUpForm() {
                     <Input
                       className="text-white"
                       placeholder="Enter your password"
+                      {...register('password')}
                       type={showPassword ? "text" : "password"}
                     />
                     <span
@@ -95,7 +122,7 @@ export default function SignUpForm() {
                 </div>
                 {/* <!-- Button --> */}
                 <div>
-                  <button className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                  <button type="submit" className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
                     Sign Up
                   </button>
                 </div>
