@@ -22,11 +22,11 @@ export default function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
+            <Route path="/signup" element={<SignUp />} />
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/jobs" element={<JobPage />} />
