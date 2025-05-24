@@ -26,7 +26,7 @@ export default function App() {
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/create-admin" element={<SignUp />} />
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/jobs" element={<JobPage />} />
