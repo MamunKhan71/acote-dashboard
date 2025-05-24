@@ -2,7 +2,7 @@ import PageMeta from "../../components/common/PageMeta";
 import DashboardMetrics from "../../components/dashboard/dashboardMetrics";
 import MetricsChart from "../../components/dashboard/OverviewCharts";
 import RecentAppointments from "../../components/dashboard/RecentAppointments";
-import RecentJobs from "../../components/dashboard/RecentJobs";
+import RecentJobs from "../Jobs/RecentJobs";
 
 export default function Home() {
   return (

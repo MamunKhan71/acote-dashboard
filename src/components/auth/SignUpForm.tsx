@@ -37,7 +37,7 @@ export default function SignUpForm() {
         <div>
           <div className="mb-5 sm:mb-8 text-left">
             <h1 className="mb-2 font-semibold text-black dark:text-white text-title-sm">
-              Make Admin
+              Creat Admin
             </h1>
             <p className="text-sm text-gray-700 dark:text-gray-400">
               Enter the following information to create a new admin account.
