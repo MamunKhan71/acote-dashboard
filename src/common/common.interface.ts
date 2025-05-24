@@ -38,3 +38,14 @@ export interface IAdminRegisterValue {
   name: string;
   password: string;
 }
+
+export interface AllAdminsGetResponse {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

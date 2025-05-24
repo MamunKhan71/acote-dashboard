@@ -1,4 +1,4 @@
-import RecentAppointments from "../../components/ecommerce/RecentAppointments"
+import RecentAppointments from "../../components/dashboard/RecentAppointments"
 
 const AppointmentsPage = () => {
     return (

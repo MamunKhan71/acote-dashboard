@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import RecentJobs from '../../components/ecommerce/RecentJobs'
+import RecentJobs from '../../components/dashboard/RecentJobs'
 import Button from '../../components/ui/button/Button'
 import { PlusIcon } from '../../icons'
 

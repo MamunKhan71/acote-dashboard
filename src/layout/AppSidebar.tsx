@@ -73,7 +73,7 @@ const othersItems: NavItem[] = [
     </svg>
     ,
     name: "Create Admin",
-    path: "/create-admin",
+    path: "/admins",
   },
   {
     icon: <svg

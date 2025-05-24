@@ -1,8 +1,8 @@
 import PageMeta from "../../components/common/PageMeta";
-import EcommerceMetrics from "../../components/ecommerce/EcommerceMetrics";
-import MetricsChart from "../../components/ecommerce/OverviewCharts";
-import RecentAppointments from "../../components/ecommerce/RecentAppointments";
-import RecentJobs from "../../components/ecommerce/RecentJobs";
+import DashboardMetrics from "../../components/dashboard/dashboardMetrics";
+import MetricsChart from "../../components/dashboard/OverviewCharts";
+import RecentAppointments from "../../components/dashboard/RecentAppointments";
+import RecentJobs from "../../components/dashboard/RecentJobs";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       />
       <div className="grid grid-cols-12 gap-4 md:gap-6 w-full">
         <div className="col-span-12 space-y-6">
-          <EcommerceMetrics />
+          <DashboardMetrics />
         </div>
         <div className="col-span-12 grid grid-cols-1 gap-6">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import SignIn from "../pages/AuthPages/SignIn";
-import SignUp from "../pages/AuthPages/SignUp";
+import SignUp from "../pages/admin/AddAdmin";
 import ProtectedRoute from "../components/guard/ProtectedRoute";
 import AppLayout from "../layout/AppLayout";
 import Home from "../pages/Dashboard/Home";

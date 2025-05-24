@@ -1,8 +1,11 @@
+import { BrowserRouter, Route, Routes } from "react-router";
 import { ScrollToTop } from "./components/common/ScrollToTop";
+import ProtectedRoute from "./components/guard/ProtectedRoute";
 import AppLayout from "./layout/AppLayout";
+import AllAdmin from "./pages/admin/AllAdminPage";
 import AppointmentsPage from "./pages/Appointments/AppointmentsPage";
 import SignIn from "./pages/AuthPages/SignIn";
-import SignUp from "./pages/AuthPages/SignUp";
+import { default as AddAdmin } from "./pages/admin/AddAdmin";
 import CategoryUtilityPage from "./pages/BasicSettings/CategoryUtilityPage";
 import Home from "./pages/Dashboard/Home";
 import EventsPage from "./pages/Events/EventsPage";
@@ -12,8 +15,6 @@ import NotFound from "./pages/OtherPage/NotFound";
 import AddPortfolioPage from "./pages/Portfolio/PortfolioPage";
 import ProductsPage from "./pages/Products/ProductsPage";
 import UserProfiles from "./pages/UserProfiles";
-import ProtectedRoute from "./components/guard/ProtectedRoute";
-import { BrowserRouter, Route, Routes } from "react-router";
 
 export default function App() {
   return (
@@ -26,7 +27,8 @@ export default function App() {
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
-            <Route path="/create-admin" element={<SignUp />} />
+            <Route path="/admins" element={<AllAdmin />} />
+            <Route path="/create-admin" element={<AddAdmin />} />
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/jobs" element={<JobPage />} />

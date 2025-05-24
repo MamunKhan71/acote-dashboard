@@ -32,8 +32,8 @@ export default function SignUpForm() {
 
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="flex flex-col flex-1 w-full overflow-y-auto lg:w-1/2 no-scrollbar relative">
-      <div className="flex flex-col justify-start flex-1 w-full max-w-xl p-8">
+    <div className="flex flex-col flex-1 w-full overflow-y-auto lg:w-full no-scrollbar relative">
+      <div className="flex flex-col justify-start flex-1 w-full p-8">
         <div>
           <div className="mb-5 sm:mb-8 text-left">
             <h1 className="mb-2 font-semibold text-black dark:text-white text-title-sm">
@@ -117,7 +117,24 @@ export default function SignUpForm() {
                 </div>
                 {/* <!-- Button --> */}
                 <div>
-                  <button type="submit" className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                  <button type="submit" className="flex items-center gap-1 justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={20}
+                      height={20}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-shield-plus-icon lucide-shield-plus"
+                    >
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                      <path d="M9 12h6" />
+                      <path d="M12 9v6" />
+                    </svg>
+
                     Grant Access
                   </button>
                 </div>

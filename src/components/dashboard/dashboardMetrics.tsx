@@ -7,7 +7,7 @@ import {
 } from "../../icons";
 import Badge from "../ui/badge/Badge";
 
-export default function EcommerceMetrics() {
+export default function DashboardMetrics() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-6 w-full">
       {/* <!-- Metric Item Start: Total Job Posted --> */}
