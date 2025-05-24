@@ -16,7 +16,7 @@ export const api = createApi({
   }),
   tagTypes: ["Post", "User", "products", "category", "order"],
   endpoints: (builder) => ({
-    getInitialToken: builder.query<IResponse<ILoginData>, void>({
+    getInitialToken: builder.query<ILoginData, void>({
       query: () => ({
         url: "/api/v1/auth/admin",
       }),

@@ -4,7 +4,7 @@ import { api } from "../api/api";
 export const userEndpoints = api.injectEndpoints({
   endpoints: (builder) => ({
     // LOGIN USER
-    loginUser: builder.mutation<IResponse<ILoginData>, ILoginValue>({
+    loginUser: builder.mutation<ILoginData, ILoginValue>({
       query: (body) => ({
         url: "/api/v1/auth/login",
         method: "POST",

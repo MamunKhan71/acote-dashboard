@@ -21,7 +21,12 @@ export default function SignInForm() {
       email: data?.email,
       password: data?.password
     })
-    console.log(result)
+    if (result?.data?.token) {
+      localStorage.setItem("token", result?.data?.token);
+      window.location.href = "/";
+    } else {
+      alert(result?.data?.message);
+    }
   }
   return (
     <div className="flex flex-col flex-1 relative">

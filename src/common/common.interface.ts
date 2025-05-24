@@ -5,6 +5,8 @@ export interface IResponse<T> {
 }
 
 export interface ILoginData {
+  message?: string;
+  token?: string;
   admin: {
     _id: string;
     name: string;

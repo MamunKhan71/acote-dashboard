@@ -7,7 +7,7 @@ const ProtectedRoute: React.FC = () => {
     const { user } = useSelector(selectUser);
     console.log(user)
 
-    return user ? <Outlet /> : <Navigate to="/signin" />;
+    return user !== null && user !== undefined ? <Outlet /> : <Navigate to="/signin" />;
 };
 
 export default ProtectedRoute;
